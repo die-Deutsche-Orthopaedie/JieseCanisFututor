@@ -25,7 +25,7 @@ do
 		password=`GeneratePW`
 		# /root/rar/rar a -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.rar" $folder
 		currentdate=`date +%y.%m.%d`
-		/root/rar/rar a -df -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.$currentdate.rar" $folder
+		/root/rar/rar a -v2.33g -v1g -df -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.$currentdate.rar" $folder
 		echo "$folder♂$currentdate♂$password" >> pair.txt
 	fi
 done
