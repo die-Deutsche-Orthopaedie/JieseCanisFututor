@@ -14,9 +14,12 @@ do
 	if [ -d $folder ]
 	then
 		cd $folder
-		md5sum *.* > /tmp/md5
-		sha1sum *.* > /tmp/sha1
-		sha256sum *.* > /tmp/sha256
+		# md5sum *.* > /tmp/md5
+		find  -type f -print0 | xargs -0 md5sum > /tmp/md5
+		# sha1sum *.* > /tmp/sha1
+		find  -type f -print0 | xargs -0 sha1sum > /tmp/sha1
+		# sha256sum *.* > /tmp/sha256
+		find  -type f -print0 | xargs -0 sha256sum > /tmp/sha256
 		mv /tmp/md5 $folder.md5
 		mv /tmp/sha1 $folder.sha1
 		mv /tmp/sha256 $folder.sha256
@@ -25,7 +28,7 @@ do
 		password=`GeneratePW`
 		# /root/rar/rar a -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.rar" $folder
 		currentdate=`date +%y.%m.%d`
-		/root/rar/rar a -v2.33g -v1g -df -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.$currentdate.rar" $folder
+		/root/rar/rar a -df -v2.33g -v1g -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.$currentdate.rar" $folder
 		echo "$folder♂$currentdate♂$password" >> pair.txt
 	fi
 done
