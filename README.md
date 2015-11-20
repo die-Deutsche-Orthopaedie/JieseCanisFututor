@@ -7,9 +7,11 @@ encrypt.sh: simply put it under a directory with lot of sub-directories and exec
 
 encrypt.sh：只需放在有大量子目录的目录下执行，它将自动计算子目录下所有文件的MD5、SHA1和SHA256并分别存放，将每一个子目录用54位的随机密码加密打包成一个.rar文件，删除源文件，并将文件名和密码信息存储到pair.txt里。
 
+
 pair.txt is CRUCIAL that it's the ONLY thing that can decrypt  files, if lost you're gonna NOT recovery encrypted files ANYMORE. so store it with extreme caution and have as many backups as possible. 
 
 pair.txt至关重要，只有它才能解密那些文件，如果你丢了这个文件你那些加了密的压缩包就成了一堆废物。所以小心存储pair.txt，做尽可能多的备份。
+
 
 decrypt.sh: simply put it under a directory with .rar files AND pair.txt and execute it, it will automatically read file infomations from pair.txt and extract original directories from .rar files written in pair.txt with the password in pair.txt, and verify MD5, SHA1 and SHA256 inside every single sub-directory after extraction. 
 
