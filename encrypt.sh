@@ -29,6 +29,7 @@ do
 		# /root/rar/rar a -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.rar" $folder
 		currentdate=`date +%y.%m.%d`
 		/root/rar/rar a -df -v2.33g -v1g -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.$currentdate.rar" $folder
+		echo "$folder♂$currentdate♂$password" > "pair.$folder.$currentdate.txt"
 		echo "$folder♂$currentdate♂$password" >> pair.txt
 	fi
 done
