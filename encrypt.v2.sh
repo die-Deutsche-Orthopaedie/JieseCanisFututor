@@ -8,7 +8,7 @@ function GeneratePW {
 	echo "${arr[@]}"|tr -d " "
 }
 
-function encrypt{
+function encrypt {
 	if [ -d $1 ]
 	then
 		cd $1
@@ -26,18 +26,18 @@ function encrypt{
 		password=`GeneratePW`
 		# /root/rar/rar a -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.rar" $folder
 		currentdate=`date +%y.%m.%d`
-		/root/rar/rar a -df -v2.33g -v1g -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.$currentdate.rar" $folder
-		echo "$folder♂$currentdate♂$password" >> pair.txt
+		/root/rar/rar a -df -v2.33g -v1g -htb -m0 -ma5 -rr5 -ts -hp"$password" "$1.$currentdate.rar" $1
+		echo "$1♂$currentdate♂$password" >> pair.txt
+		echo "$1♂$currentdate♂$password" > "pair.$1.$currentdate.txt"
 	fi
 }
 
 if [ -z $1 ]
 then
-	echo "" > pair.txt
 	for folder in `ls`
 	do
 		encrypt $folder
 	done
 else
-	encrypt $folder
+	encrypt $1
 fi
