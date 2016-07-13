@@ -18,3 +18,8 @@ pair.txt至关重要，只有它才能解密那些文件，如果你丢了这个
 decrypt.sh: simply put it under a directory with .rar files AND pair.txt and execute it, it will automatically read file infomations from pair.txt and extract original directories from .rar files written in pair.txt with the password in pair.txt, and verify MD5, SHA1 and SHA256 inside every single sub-directory after extraction. 
 
 decrypt.sh：只需放在有pair.txt和对应的.rar文件的目录下执行，它将自动读取pair.txt里的文件信息，并用pair.txt里的密码来解压pair.txt里记载的.rar文件，从中解压出原来的目录，并在解压后验证每一个子目录内的MD5、SHA1和SHA256。
+
+
+(16.07.13 update)compatible with cygwin, now you can use the script on Windows. don't forget to copy a WinRAR into cygwin folder. 
+
+（16.07.13更新）兼容cygwin，现在你可以在Windows上面使用这个脚本了。别忘了往cygwin里面拷一份WinRAR。
