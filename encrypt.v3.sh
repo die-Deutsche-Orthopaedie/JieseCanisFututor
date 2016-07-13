@@ -8,20 +8,20 @@ function GeneratePW {
 	echo "${arr[@]}"|tr -d " "
 }
 
-RARpath="/home/ddOs/WinRAR/rar"
+RARpath="/home/WinRAR/rar"
 
 function encrypt {
 	if [ -d $1 ]
 	then
 		cd $1
 		# md5sum *.* > /tmp/md5
-		echo "Caculatin' MD5sum, please wait... "
+		echo "Calculatin' MD5sum, please wait... "
 		find  -type f -print0 | xargs -0 md5sum > /tmp/$1.md5
 		# sha1sum *.* > /tmp/sha1
-		echo "Caculatin' SHA1sum, please wait... "
+		echo "Calculatin' SHA1sum, please wait... "
 		find  -type f -print0 | xargs -0 sha1sum > /tmp/$1.sha1
 		# sha256sum *.* > /tmp/sha256
-		echo "Caculatin' SHA256sum, please wait... "
+		echo "Calculatin' SHA256sum, please wait... "
 		find  -type f -print0 | xargs -0 sha256sum > /tmp/$1.sha256
 		mv /tmp/$1.md5 $1.md5
 		mv /tmp/$1.sha1 $1.sha1
