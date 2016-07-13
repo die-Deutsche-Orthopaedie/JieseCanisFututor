@@ -23,3 +23,8 @@ decrypt.sh：只需放在有pair.txt和对应的.rar文件的目录下执行，�
 (16.07.13 update)compatible with cygwin, now you can use the script on Windows. don't forget to copy a WinRAR into cygwin folder. 
 
 （16.07.13更新）兼容cygwin，现在你可以在Windows上面使用这个脚本了。别忘了往cygwin里面拷一份WinRAR。
+
+
+UPDATE: corrected a word. and as long as i stay in that fuckin' stupid putian hospital SEO company, my English will be declined rapidly. now i can't even fuckin' spell "calculate" correctly:joy::joy_cat::joy::joy_cat::joy:
+
+更新：更正了个单词。还有只要我在这家傻逼莆田医院SEO公司里待下去，我的英语水平将直线下降。现在好了，我™连calculate都拼不对了:joy::joy_cat::joy::joy_cat::joy:
