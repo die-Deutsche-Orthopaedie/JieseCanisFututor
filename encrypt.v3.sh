@@ -29,7 +29,7 @@ function encrypt {
 		mv "/tmp/$folder.sha1" "$folder.sha1"
 		mv "/tmp/$folder.sha256" "$folder.sha256"
 		cd ..
-		# password="233333"
+		#password="233333"
 		password=`GeneratePW`
 		# /root/rar/rar a -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.rar" $folder
 		currentdate=`date +%y.%m.%d`
