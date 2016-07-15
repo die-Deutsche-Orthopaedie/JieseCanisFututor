@@ -12,35 +12,36 @@ RARpath="/home/WinRAR/rar"
 
 # $1 may contains space
 function encrypt {
-	if [ -d "$1" ]
+	folder=`echo $1 | sed 's/™/ /g'`
+	if [ -d "$folder" ]
 	then
-		cd "$1"
+		cd "$folder"
 		# md5sum *.* > /tmp/md5
 		echo "Calculatin' MD5sum, please wait... "
-		find  -type f -print0 | xargs -0 md5sum > "/tmp/$1.md5"
+		find  -type f -print0 | xargs -0 md5sum > "/tmp/$folder.md5"
 		# sha1sum *.* > /tmp/sha1
 		echo "Calculatin' SHA1sum, please wait... "
-		find  -type f -print0 | xargs -0 sha1sum > "/tmp/$1.sha1"
+		find  -type f -print0 | xargs -0 sha1sum > "/tmp/$folder.sha1"
 		# sha256sum *.* > /tmp/sha256
 		echo "Calculatin' SHA256sum, please wait... "
-		find  -type f -print0 | xargs -0 sha256sum > "/tmp/$1.sha256"
-		mv "/tmp/$1.md5" "$1.md5"
-		mv "/tmp/$1.sha1" "$1.sha1"
-		mv "/tmp/$1.sha256" "$1.sha256"
+		find  -type f -print0 | xargs -0 sha256sum > "/tmp/$folder.sha256"
+		mv "/tmp/$folder.md5" "$folder.md5"
+		mv "/tmp/$folder.sha1" "$folder.sha1"
+		mv "/tmp/$folder.sha256" "$folder.sha256"
 		cd ..
 		# password="233333"
 		password=`GeneratePW`
 		# /root/rar/rar a -htb -m0 -ma5 -rr5 -ts -hp"$password" "$folder.rar" $folder
 		currentdate=`date +%y.%m.%d`
-		"$RARpath" a -df -v1g -htb -m0 -ma5 -rr5 -ts -ol -os -hp"$password" "$1.$currentdate.rar" "$1"
-		echo "$1|$currentdate|$password" >> pair.txt
-		echo "$1|$currentdate|$password" > "pair.$1.$currentdate.txt"
+		"$RARpath" a -df -v1g -htb -m0 -ma5 -rr5 -ts -ol -os -hp"$password" "$folder.$currentdate.rar" "$folder"
+		echo "$folder|$currentdate|$password" >> pair.txt
+		echo "$folder|$currentdate|$password" > "pair.$folder.$currentdate.txt"
 	fi
 }
 
 if [ -z "$1" ]
 then
-	for folder in `ls`
+	for folder in `ls | sed 's/ /™/g'`
 	do
 		encrypt "$folder"
 	done
