@@ -8,7 +8,7 @@ function GenerateString {
 	echo "${arr[@]}"|tr -d " "
 }
 
-for file in `echo *.rar | sed 's/ /™/g'`
+for file in `ls |  grep "\.rar" | sed 's/ /™/g'`
 do
 	file=`echo $file | sed 's/™/ /g'`
 	newname=`GenerateString`
