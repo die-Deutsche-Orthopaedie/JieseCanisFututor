@@ -1,6 +1,6 @@
 cat recover.sh | sed "s/mv /ren /g" > extract.utf8.bat
-echo "copy \"C:\Program Files\WinRAR\rar.exe\"" >> extract.utf8.bat
-echo "if not exist copy \"C:\Program Files (x86)\WinRAR\rar.exe\"" >> extract.utf8.bat
+echo "if not exist rar.exe copy \"C:\Program Files\WinRAR\rar.exe\"" >> extract.utf8.bat
+echo "if not exist rar.exe copy \"C:\Program Files (x86)\WinRAR\rar.exe\"" >> extract.utf8.bat
 for pair in `cat pair.txt | sed 's/ /™/g'`
 do
 	folder=`echo $pair | cut -d\| -f1  | sed 's/™/ /g'`
