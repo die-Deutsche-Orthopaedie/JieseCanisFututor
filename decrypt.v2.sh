@@ -5,7 +5,7 @@ do
 	folder=`echo $pair | cut -d\| -f1  | sed 's/™/ /g'`
 	currentdate=`echo $pair | cut -d\| -f2  | sed 's/™/ /g'`
 	password=`echo $pair | cut -d\| -f3  | sed 's/™/ /g'`
-	/root/rar/rar x -ts -p"$password" "$folder.$currentdaterar"
+	# /root/rar/rar x -ts -p"$password" "$folder.$currentdaterar"
 	if [ -f "$folder.$currentdate.rar" ]
 	then
 		"$RARpath" x -ts -p"$password" "$folder.$currentdate.rar"
