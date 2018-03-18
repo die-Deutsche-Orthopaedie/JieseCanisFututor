@@ -48,7 +48,7 @@ do
     newname="$newname.$newname2.$newname3.$newname4.rar"
     # mv "$file" "$newname"
     echo "$file|$newname" >> recover.txt
-        echo "mv \"$file\" \"$newname\"" >> movefile.sh
+    echo "mv \"$file\" \"$newname\"" >> movefile.sh
     echo "mv \"$newname\" \"$file\"" >> recover.sh
 done
 
@@ -71,6 +71,7 @@ echo -e "\033[36m$f\033[0m Occurrence(s) of Randomized Filename Collision"
 
 if [ $f -eq 0 ]; then
     echo -e "\033[36mPassed Randomized Filename Collision Test\033[0m"
+    bash movefile.sh
 else
     echo -e "\033[31mFOCKED, try again\033[0m"
     rm recover.txt movefile.sh recover.sh -f
