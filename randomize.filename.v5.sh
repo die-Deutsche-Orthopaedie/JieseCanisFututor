@@ -41,7 +41,7 @@ function GenerateString4 {
 OLD_IFS=$IFS
 IFS=$'\n'
 
-for file in `ls`
+for file in `ls | grep -v "randomize.filename.v5.sh"`
 do
     newname=`GenerateString`
     newname2=`GenerateString2`
