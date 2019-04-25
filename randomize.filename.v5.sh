@@ -80,4 +80,3 @@ else
 fi
 
 IFS=$OLD_IFS
-0
